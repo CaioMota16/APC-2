@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <math.h>
 
 // move o cursor para a posição (x,y) do console
 void gotoxy(int x, int y) {
@@ -76,6 +77,12 @@ int main() {
   // Exercício 2
   unsigned char *pchar3 = (unsigned char *)imagem3;
   // insira o seu código abaixo
+  for (int x = 0; x < 100 * 4; x+=4) {
+    int avg = round (pchar3[x] + pchar3[x + 1] + pchar3[x + 2]) / 3.0;
+    pchar3[x+3] = avg;
+    pchar3[x+2]= avg;
+    pchar3[x+1]= avg;
+  }
   // soluçao:
 
   // Exercício 3
@@ -100,7 +107,7 @@ int main() {
   }
 
   gotoxy(25, 1);
-  printf("Imagem2 com quadrado vermelho\n");
+  printf("Imagem2 sem a cor vermelha\n");
   xoffset = 25, yoffset = 3;
   for (int x = 0; x < 10; x++) {
     for (int y = 0; y < 10; y++) {
@@ -109,7 +116,7 @@ int main() {
   }
 
   gotoxy(1, 14);
-  printf("Imagem3 com X azul\n");
+  printf("Imagem3 com escala cinza\n");
   xoffset = 1, yoffset = 17;
   for (int x = 0; x < 10; x++) {
     for (int y = 0; y < 10; y++) {
