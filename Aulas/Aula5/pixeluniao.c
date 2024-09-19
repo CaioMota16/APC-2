@@ -257,8 +257,8 @@ int main() {
               // Preencher com cor verde (árvore invertida)
               pixels4[x * 10 + y].rgba[0] = 0;   
               pixels4[x * 10 + y].rgba[1] = 0; 
-              pixels4[x * 10 + y].rgba[2] = 150;  
-              pixels4[x * 10 + y].rgba[3] = 0; 
+              pixels4[x * 10 + y].rgba[2] = 0;  
+              pixels4[x * 10 + y].rgba[3] = 255; 
           } else {
               pixels4 = imagem7;
           }
