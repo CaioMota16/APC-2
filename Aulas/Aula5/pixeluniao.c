@@ -219,9 +219,9 @@ int main() {
       if (lin == 0 || lin == 9 || col == 0 || col == 9) {
         // Definir a cor da borda como rosa (R=255, G=0, B=128)
           pchar6[(lin * 10 * 4) + (col * 4) + 3] = 255; // Alpha (transparência)
-          pchar6[(lin * 10 * 4) + (col * 4) + 2] = 127; // B
-          pchar6[(lin * 10 * 4) + (col * 4) + 1] = 203;   // G
-          pchar6[(lin * 10 * 4) + (col * 4)] = 255;     // R
+          pchar6[(lin * 10 * 4) + (col * 4) + 2] = 127;
+          pchar6[(lin * 10 * 4) + (col * 4) + 1] = 203;  
+          pchar6[(lin * 10 * 4) + (col * 4)] = 255;     
       }
     }
   }
@@ -255,10 +255,10 @@ int main() {
       for (int y = 0; y < 10; y++) {
           if (x <= 9 - y) {
               // Preencher com cor verde (árvore invertida)
-              pixels4[x * 10 + y].rgba[0] = 0;   // R (vermelho)
-              pixels4[x * 10 + y].rgba[1] = 0; // G (verde)
-              pixels4[x * 10 + y].rgba[2] = 150;   // B (azul)
-              pixels4[x * 10 + y].rgba[3] = 0; // A (opacidade)
+              pixels4[x * 10 + y].rgba[0] = 0;   
+              pixels4[x * 10 + y].rgba[1] = 0; 
+              pixels4[x * 10 + y].rgba[2] = 150;  
+              pixels4[x * 10 + y].rgba[3] = 0; 
           } else {
               pixels4 = imagem7;
           }
@@ -270,31 +270,52 @@ int main() {
 
   // Exercício 8
   union RGBA_Pixel *pixels5 = imagem8;
-  for (int x = 0; x < 10; x++) {
-      for (int y = 0; y < 10; y++) {
-          if (x<= y) {
-              // Preencher com cor azul (triângulo)
-              pixels5[x * 10 + y].rgba[0] = 0;   // R (vermelho)
-              pixels5[x * 10 + y].rgba[1] = 0; // G (verde)
-              pixels5[x * 10 + y].rgba[2] = 150;   // B (azul)
-              pixels5[x * 10 + y].rgba[3] = 0; // A (opacidade)
-          } else if (x <= 9 - y) {
-              // Preencher com cor verde (árvore invertida)
-              pixels5[x * 10 + y].rgba[0] = 0;   // R (vermelho)
-              pixels5[x * 10 + y].rgba[1] = 150; // G (verde)
-              pixels5[x * 10 + y].rgba[2] = 0;   // B (azul)
-              pixels5[x * 10 + y].rgba[3] = 0; // A (opacidade)
-          } else {
-              pixels5 = imagem8;
-          }
+  for(int x = 0; x < 10; x++){
+    for(int y = 0; y < 10; y++){
+      if(x>y){
+        pixels5= imagem8;
       }
+      else if (x >= 10 - y){
+        pixels5= imagem8;
+      } else {
+          pixels5[x * 10 + y].rgba[0] = 0;   
+          pixels5[x * 10 + y].rgba[1] = 0; 
+          pixels5[x * 10 + y].rgba[2] = 165;  
+          pixels5[x * 10 + y].rgba[3] = 255; 
+        } 
+    }
   }
   // insira o seu código acima
 
   // Exercício 9
   unsigned char *pchar10 = (unsigned char *)imagem9;
   // insira o seu código abaixo
-  // solução:  
+  // solução: 
+  union RGBA_Pixel *pixels6 = imagem9;
+  for(int x = 0; x < 10; x++){
+    for(int y = 0; y < 10; y++){
+      if(x>y && x <= 9-y ){
+        pixels6[x * 10 + y].rgba[0] = 0;  
+        pixels6[x * 10 + y].rgba[1] = 0; 
+        pixels6[x * 10 + y].rgba[2] = 0;  
+        pixels6[x * 10 + y].rgba[3] = 255; 
+      }
+      else if (x <= 9 - y){
+        pixels6[x * 10 + y].rgba[0] = 0;   
+        pixels6[x * 10 + y].rgba[1] = 0; 
+        pixels6[x * 10 + y].rgba[2] = 165;   
+        pixels6[x * 10 + y].rgba[3] = 255; 
+      } else if(x<=y && x >= 9-y ) {
+        pixels6[x * 10 + y].rgba[0] = 0;   
+        pixels6[x * 10 + y].rgba[1] = 0; 
+        pixels6[x * 10 + y].rgba[2] = 150;   
+        pixels6[x * 10 + y].rgba[3] = 0; 
+      }
+      else {
+        pixels6 = imagem9;
+        } 
+    }
+  }
   // insira o seu código acima
 
   // limpa a tela
