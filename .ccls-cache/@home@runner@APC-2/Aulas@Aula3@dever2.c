@@ -22,7 +22,7 @@ int main(void) {
     char *ptr = string;
     char *lastdigit = NULL; 
     char caracter;
-
+    printf("Exercicio de APC II\n");
     printf("Digite um caractere: ");
     scanf(" %c", &caracter); 
 

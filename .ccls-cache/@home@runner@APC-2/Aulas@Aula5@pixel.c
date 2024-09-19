@@ -79,19 +79,31 @@ int main() {
   // insira o seu código abaixo
   for (int x = 0; x < 100 * 4; x+=4) {
     int avg = round (pchar3[x] + pchar3[x + 1] + pchar3[x + 2]) / 3.0;
-    pchar3[x+3] = avg;
+    pchar3[x+1] = avg;
     pchar3[x+2]= avg;
-    pchar3[x+1]= avg;
+    pchar3[x+3]= avg;
   }
   // soluçao:
 
   // Exercício 3
-  pchar2 = (unsigned char *)imagem2;
-  pchar3 = (unsigned char *)imagem3;
+  
   unsigned char *pchar4 = (unsigned char *)imagem4;
   // insira o seu código abaixo
   // soluçao:
-
+  for (int lin = 0; lin < 10; lin++) {
+    for (int col = 0; col < 10; col++) {
+     if(lin==col){
+       pchar4[(lin *10 *4)+(col *4)+3] = 0;
+       pchar4[(lin *10 *4)+(col *4)+2] = 0;
+       pchar4[(lin *10 *4)+(col *4)+1] = 255;
+     } 
+      else if(lin + col == 9){
+        pchar4[(lin *10 *4)+(col *4)+3] = 0;
+         pchar4[(lin *10 *4)+(col *4)+2] = 0;
+         pchar4[(lin *10 *4)+(col *4)+1] = 255;
+      }
+    }
+  }
   // insira o seu código acima
 
   // limpa a tela
@@ -116,7 +128,7 @@ int main() {
   }
 
   gotoxy(1, 14);
-  printf("Imagem3 com escala cinza\n");
+  printf("Imagem3 com\nescala cinza\n");
   xoffset = 1, yoffset = 17;
   for (int x = 0; x < 10; x++) {
     for (int y = 0; y < 10; y++) {
@@ -125,9 +137,8 @@ int main() {
   }
 
   gotoxy(25, 14);
-  printf("Imagem4 com a sobreposição");
+  printf("Imagem4 com o x azul");
   gotoxy(25, 15);
-  printf("da imagem2 em imagem3");
   xoffset = 25, yoffset = 17;
   for (int x = 0; x < 10; x++) {
     for (int y = 0; y < 10; y++) {
